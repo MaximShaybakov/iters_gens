@@ -1,3 +1,5 @@
+from itertools import chain
+
 nested_list = [
     ['a', 'b', 'c'],
     ['d', 'e', 'f', 'h', False],
@@ -24,7 +26,8 @@ class Iterator:
 
 
     def __str__(self):
-        return '\n'.join(str(elem) for elem in nested_list[self.start])
+        chain(*nested_list)
+        return '\n'.join(str(elem) for elem in chain(*nested_list))
 
 
 if __name__ == '__main__':
