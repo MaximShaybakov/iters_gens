@@ -20,5 +20,8 @@ def show():
 
 
 if __name__ == '__main__':
+    some_ls = []
     for item in one_list(nested_list):
-        print(item)
+        some_ls.append(item)
+
+#print(some_ls)

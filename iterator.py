@@ -9,27 +9,30 @@ nested_list = [
 
 class Iterator:
 
-    def __init__(self, nested_list):
-        self.start = -1
-        self.end = len(nested_list)
+    def __init__(self, some_list):
+        self.my_list = some_list
 
 
     def __iter__(self):
+        self.my_list_cursor = -1 # cursor in
+        self.nested_list_cursor = 0 # cursor out
         return self
 
 
     def __next__(self):
-        self.start += 1
-        if self.start == self.end:
+        self.my_list_cursor += 1
+        if self.my_list_cursor == len(self.my_list[self.nested_list_cursor]):
+            self.my_list_cursor = 0
+            self.nested_list_cursor += 1
+        if self.nested_list_cursor == len(self.my_list):
             raise StopIteration
-        return self
-
-
-    def __str__(self):
-        chain(*nested_list)
-        return '\n'.join(str(elem) for elem in chain(*nested_list))
+        return self.my_list[self.nested_list_cursor][self.my_list_cursor]
 
 
 if __name__ == '__main__':
+    my_iter_list = []
     for elem in Iterator(nested_list):
-        print(elem)
+        my_iter_list.append(elem)
+        #print(elem)
+
+    # print(my_iter_list)
