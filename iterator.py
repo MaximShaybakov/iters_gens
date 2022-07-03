@@ -14,8 +14,8 @@ class Iterator:
 
 
     def __iter__(self):
-        self.my_list_cursor = -1 # cursor in
-        self.nested_list_cursor = 0 # cursor out
+        self.my_list_cursor = -1
+        self.nested_list_cursor = 0
         return self
 
 
